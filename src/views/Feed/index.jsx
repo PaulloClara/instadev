@@ -1,11 +1,18 @@
 import React, { Component } from "react";
 
+import Post from "../../components/Post";
+
+import "./styles.css";
+
 class Feed extends Component {
   render() {
     return (
-      <div className="feed">
-        <h1>Feed</h1>
-      </div>
+      <section id="post-list">
+        <Post></Post>
+        <Post></Post>
+        <Post></Post>
+        <Post></Post>
+      </section>
     );
   }
 }

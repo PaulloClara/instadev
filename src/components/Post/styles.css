@@ -1,0 +1,56 @@
+.post {
+  background-color: #fff;
+  border: 1px solid #ddd;
+
+  margin-top: 30px;
+}
+
+.post header {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.post .info {
+  display: flex;
+  flex-direction: column;
+}
+
+.post .info span {
+  font-size: 13px;
+}
+
+.post .info .place {
+  font-size: 11px;
+  color: #666;
+  margin-top: 3px;
+}
+
+.post .image {
+  width: 100%;
+}
+
+.post footer {
+  padding: 20px;
+}
+
+.post .actions {
+  margin-bottom: 10px;
+}
+
+.post .actions img {
+  height: 20px;
+  margin-right: 10px;
+}
+
+.post .desc {
+  font-size: 13px;
+  margin-top: 2px;
+  line-height: 10px;
+}
+
+.post .desc .hashtag {
+  color: #7159c1;
+  display: block;
+}
