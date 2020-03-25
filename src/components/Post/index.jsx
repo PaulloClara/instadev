@@ -1,4 +1,6 @@
-import React from "react";
+import React, { Component } from "react";
+
+import Api from "../../services/api";
 
 import more from "../../assets/icons/more.svg";
 import like from "../../assets/icons/like.svg";
@@ -7,36 +9,50 @@ import comment from "../../assets/icons/comment.svg";
 
 import "./styles.css";
 
-export default ({ post }) => (
-  <article className="post">
-    <header>
-      <div className="info">
-        <span>{post.author}</span>
-        <span className="place">{post.place}</span>
-      </div>
+class Post extends Component {
+  handleLike = async _id => {
+    await Api.put(`/posts/${_id}/likes`);
+  };
 
-      <img src={more} alt="Mais"></img>
-    </header>
+  render() {
+    return (
+      <article className="post">
+        <header>
+          <div className="info">
+            <span>{this.props.post.author}</span>
+            <span className="place">{this.props.post.place}</span>
+          </div>
 
-    <img
-      className="image"
-      src={`${process.env.REACT_APP_API_URL}/files/${post.image}`}
-      alt={post.image}
-    ></img>
+          <img src={more} alt="Mais"></img>
+        </header>
 
-    <footer>
-      <div className="actions">
-        <img src={like} alt="like"></img>
-        <img src={comment} alt="comment"></img>
-        <img src={send} alt="send"></img>
-      </div>
+        <img
+          className="image"
+          src={`${process.env.REACT_APP_API_URL}/files/${this.props.post.image}`}
+          alt={this.props.post.image}
+        ></img>
 
-      <strong>{post.likes} curtidas</strong>
+        <footer>
+          <div className="actions">
+            <img
+              src={like}
+              alt="like"
+              onClick={_ => this.handleLike(this.props.post._id)}
+            ></img>
+            <img src={comment} alt="comment"></img>
+            <img src={send} alt="send"></img>
+          </div>
 
-      <p className="desc">
-        {post.description}
-        <span className="hashtag">{post.hashtags}</span>
-      </p>
-    </footer>
-  </article>
-);
+          <strong>{this.props.post.likes} curtidas</strong>
+
+          <p className="desc">
+            {this.props.post.description}
+            <span className="hashtag">{this.props.post.hashtags}</span>
+          </p>
+        </footer>
+      </article>
+    );
+  }
+}
+
+export default Post;
