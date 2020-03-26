@@ -44,6 +44,10 @@
   margin-right: 10px;
 }
 
+.post .actions .like {
+  cursor: pointer;
+}
+
 .post .desc {
   font-size: 13px;
   margin-top: 2px;

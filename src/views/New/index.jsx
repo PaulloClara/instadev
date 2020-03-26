@@ -9,7 +9,7 @@ class New extends Component {
     image: null,
     author: "",
     place: "",
-    hashtags: "",
+    hashtag: "",
     description: ""
   };
 
@@ -22,7 +22,7 @@ class New extends Component {
     data.append("author", this.state.author);
     data.append("place", this.state.place);
     data.append("description", this.state.description);
-    data.append("hashtags", this.state.hashtags);
+    data.append("hashtag", this.state.hashtag);
 
     await Api.post("/posts", data);
 
@@ -65,10 +65,10 @@ class New extends Component {
         ></input>
         <input
           type="text"
-          name="hashtags"
+          name="hashtag"
           placeholder="Hashtag"
           onChange={this.handleChange}
-          value={this.state.hashtags}
+          value={this.state.hashtag}
         ></input>
 
         <button type="submit">Enviar</button>

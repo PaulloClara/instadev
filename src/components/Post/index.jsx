@@ -28,13 +28,14 @@ class Post extends Component {
 
         <img
           className="image"
-          src={`${process.env.REACT_APP_API_URL}/files/${this.props.post.image}`}
-          alt={this.props.post.image}
+          src={this.props.post.image.url}
+          alt={this.props.post.image.name}
         ></img>
 
         <footer>
           <div className="actions">
             <img
+              className="like"
               src={like}
               alt="like"
               onClick={_ => this.handleLike(this.props.post._id)}
@@ -47,7 +48,7 @@ class Post extends Component {
 
           <p className="desc">
             {this.props.post.description}
-            <span className="hashtag">{this.props.post.hashtags}</span>
+            <span className="hashtag">{this.props.post.hashtag}</span>
           </p>
         </footer>
       </article>
