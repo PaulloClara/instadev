@@ -15,7 +15,10 @@
   },
   "scripts": {
     "start": "BROWSER=None react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "post-build": "rm -rf ./production/dist && mv build ./production/dist",
+    "submit": "git-directory-deploy --directory production --branch heroku",
+    "deploy": "yarn build && yarn post-build && yarn submit"
   },
   "eslintConfig": {
     "extends": "react-app"
